@@ -20,7 +20,7 @@ Explanation: The answer is "wke", with the length of 3.
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 '''
 
-class Solution:
+class Solution1:
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
@@ -31,6 +31,8 @@ class Solution:
         characters = []
 
         for i in s:
+            # To check if a character is already in the substring, we can scan
+            # the substring, which leads to an O(n^2) algorithm.
             if i in characters:
                 maxCount = max(len(characters), maxCount)
                 del characters[0:characters.index(i) + 1]
@@ -39,3 +41,11 @@ class Solution:
 
         maxCount = max(len(characters), maxCount)
         return maxCount
+
+
+class Solution2:
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
