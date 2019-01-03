@@ -53,8 +53,9 @@ class Solution2:
         usedChar = {}
 
         for i in range(len(s)):
-            # Using sliding window, checking if a character can be done in O(1)
-            # start <= usedChar[s[i]] for the case "tmmzuxt"
+            # Using dictionary and sliding window, checking if a character can
+            # be done in O(1)
+            # condition start <= usedChar[s[i]] for case "tmmzuxt"
             if s[i] in usedChar and start <= usedChar[s[i]]:
                 start = usedChar[s[i]] + 1
             else:
