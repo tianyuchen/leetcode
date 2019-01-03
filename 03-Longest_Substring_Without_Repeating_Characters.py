@@ -49,3 +49,17 @@ class Solution2:
         :type s: str
         :rtype: int
         """
+        start = maxLength = 0
+        usedChar = {}
+
+        for i in range(len(s)):
+            # Using sliding window, checking if a character can be done in O(1)
+            # start <= usedChar[s[i]] for the case "tmmzuxt"
+            if s[i] in usedChar and start <= usedChar[s[i]]:
+                start = usedChar[s[i]] + 1
+            else:
+                maxLength = max(maxLength, i - start + 1)
+
+            usedChar[s[i]] = i
+
+        return maxLength
