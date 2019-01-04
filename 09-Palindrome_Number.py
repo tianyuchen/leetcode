@@ -30,3 +30,22 @@ class Solution:
         :rtype: bool
         """
         return str(x) == str(x)[::-1]
+
+# Solution without converting the integer to a string
+class Solution2:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        reversedNum = 0
+        originNum = x
+
+        if x < 0:
+            return False
+
+        while x > 0:
+            reversedNum = reversedNum * 10 + x % 10
+            x = int(x / 10)
+
+        return reversedNum == originNum
