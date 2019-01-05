@@ -37,4 +37,25 @@ class Solution:
         if - 2 ** 31 - 1 < x < 2 ** 31:
             return x
         else:
-            return 0 
+            return 0
+
+
+
+class Solution2:
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        num = 0
+        sign = -1 if x < 0 else 1
+        x = abs(x)
+
+        while x > 0:
+            num = num * 10 + x % 10
+            x = int(x / 10)
+
+        if - 2 ** 31 - 1 < num < 2 ** 31:
+            return num * sign
+        else:
+            return 0
