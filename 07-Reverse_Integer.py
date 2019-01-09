@@ -52,8 +52,9 @@ class Solution2:
         x = abs(x)
 
         while x > 0:
-            num = num * 10 + x % 10
-            x = int(x / 10)
+            (q, r) = divmod(x, 10)
+            num = num * 10 + r
+            x = q
 
         if - 2 ** 31 - 1 < num < 2 ** 31:
             return num * sign
