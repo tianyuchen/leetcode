@@ -38,12 +38,12 @@ class Solution2:
         :type x: int
         :rtype: bool
         """
-        reversedNum = 0
-        originNum = x
-
         if x < 0:
             return False
 
+        reversedNum = 0
+        originNum = x
+        
         while x > 0:
             reversedNum = reversedNum * 10 + x % 10
             x = int(x / 10)
