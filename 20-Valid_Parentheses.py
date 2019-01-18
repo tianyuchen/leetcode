@@ -29,3 +29,27 @@ Example 5:
 Input: "{[]}"
 Output: true
 '''
+
+class Solution:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        for i in s:
+            # when stack is vide
+            if not stack:
+                stack.append(i)
+            # when i is the key in mapping and the last element in stack is its pair bracket
+            elif i in mapping and stack[-1] == mapping[i]:
+                stack.pop()
+            else:
+                stack.append(i)
+
+        if not stack:
+            return True
+        else:
+            return False
