@@ -48,8 +48,5 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(i)
-
-        if not stack:
-            return True
-        else:
-            return False
+        # If the stack is empty, we have a valid expression.
+        return not stack
