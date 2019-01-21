@@ -34,8 +34,12 @@ class Solution:
 
     def common_start(self, sa, sb):
         def _iter():
+            # zip() returns an iterator of tuples based on the iterable object.
+            # ex. coordinate = ['x', 'y', 'z']  value = [3, 4, 5, 0, 9]
+            # zip(coordinate, value) = [('x', 3), ('y', 4), ('z', 5)]
             for a, b in zip(sa, sb):
                 if a == b:
+                    # yield will return a generator.
                     yield a
                 else:
                     return
