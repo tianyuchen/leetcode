@@ -50,3 +50,23 @@ class Solution:
                 stack.append(i)
         # If the stack is empty, we have a valid expression.
         return not stack
+
+
+class Solution2:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        for i in s:
+            # when i is the key in mapping and stack isn't vide
+            if i in mapping and stack:
+                # if the top element isn't its pair bracket 
+                if stack.pop() != mapping[i]:
+                    return False
+            else:
+                stack.append(i)
+        return not stack
