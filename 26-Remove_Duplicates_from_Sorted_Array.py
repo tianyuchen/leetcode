@@ -40,3 +40,18 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 '''
+
+
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        precedent = None
+
+        for i in nums:
+            if i == precedent:
+                nums.remove(i)
+            precedent = i
+        return nums        
