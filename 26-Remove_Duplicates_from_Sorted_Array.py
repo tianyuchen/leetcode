@@ -50,7 +50,7 @@ class Solution:
         """
         j = 0
 
-        for i in nums:
+        for i in nums[1:]:
             if i != nums[j]:
                 j += 1
                 nums[j] = i
