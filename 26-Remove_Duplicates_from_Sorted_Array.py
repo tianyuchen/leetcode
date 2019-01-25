@@ -48,10 +48,11 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        precedent = None
+        j = 0
 
         for i in nums:
-            if i == precedent:
-                nums.remove(i)
-            precedent = i
-        return nums        
+            if i != nums[j]:
+                j += 1
+                nums[j] = i
+        del nums[j+1:]
+        return len(nums)
