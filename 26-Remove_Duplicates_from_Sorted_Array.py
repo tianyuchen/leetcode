@@ -55,6 +55,6 @@ class Solution:
                 j += 1
                 nums[j] = num
 
-        del nums[j+1:]
+        del nums[j + 1:]
 
         return len(nums)
