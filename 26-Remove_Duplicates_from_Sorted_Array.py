@@ -50,9 +50,11 @@ class Solution:
         """
         j = 0
 
-        for i in nums[1:]:
-            if i != nums[j]:
+        for num in nums[1:]:
+            if num != nums[j]:
                 j += 1
-                nums[j] = i
+                nums[j] = num
+
         del nums[j+1:]
+
         return len(nums)
