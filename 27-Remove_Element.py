@@ -54,9 +54,12 @@ class Solution:
         :rtype: int
         """
         j = 0
-        for i in nums:
-            if i != val:
-                nums[j] = i
+
+        for num in nums:
+            if num != val:
+                nums[j] = num
                 j += 1
+
         del nums[j:]
+
         return len(nums)
