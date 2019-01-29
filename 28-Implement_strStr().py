@@ -21,3 +21,23 @@ to ask during an interview.
 For the purpose of this problem, we will return 0 when needle is an empty
 string. This is consistent to C's strstr() and Java's indexOf().
 '''
+
+def strStr(haystack, needle):
+    """
+    :type haystack: str
+    :type needle: str
+    :rtype: int
+    """
+
+   if needle == "":
+       return 0
+    for i in range(len(haystack) - len(needle) + 1):
+        for j in range(len(needle)):
+            print(i, j)
+            if haystack[i] != needle[j]:
+                break
+            if j == len(needle) - 1:
+                return i
+    return -1
+
+print(strStr("hello", "hello"))
