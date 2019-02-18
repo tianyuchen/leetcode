@@ -28,3 +28,19 @@ Example 2:
 Input: 4
 Output: "1211"
 '''
+
+def countAndSay(sequence):
+    res = ''
+    count = 1
+    sequence += '0'
+    for i in range(len(sequence) - 1):
+        current = sequence[i]
+        next = sequence[i + 1]
+        if current != next:
+            res += str(count) + current
+            count = 1
+        else:
+            count += 1
+    return res
+
+print(countAndSay("111221"))
