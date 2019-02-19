@@ -29,18 +29,24 @@ Input: 4
 Output: "1211"
 '''
 
-def countAndSay(sequence):
-    res = ''
-    count = 1
-    sequence += '0'
-    for i in range(len(sequence) - 1):
-        current = sequence[i]
-        next = sequence[i + 1]
-        if current != next:
-            res += str(count) + current
-            count = 1
-        else:
-            count += 1
-    return res
+class Solution:
+    def countAndSay(self, n: 'int') -> 'str':
+        s = '1'
+        for _ in range(n - 1):
+            s = self.say(s)
+        return s
 
-print(countAndSay("111221"))
+
+    def say(self, sequence):
+        res = ''
+        count = 1
+        sequence += "0"
+        for i in range(len(sequence) - 1):
+            current = sequence[i]
+            next = sequence[i + 1]
+            if current != next:
+                res += str(count) + current
+                count = 1
+            else:
+                count += 1
+        return res
