@@ -23,6 +23,8 @@ Output: 0
 '''
 
 class Solution:
+    # Time complexity: O(n)
+    # Space complexity:  O(1)
     def searchInsert(self, nums, target):
         """
         :type nums: List[int]
@@ -35,6 +37,8 @@ class Solution:
         return len(nums)
 
 class Solution2:
+    # Time complexity: O(1)
+    # Space complexity: O(1)
     def searchInsert(self, nums, target):
         """
         :type nums: List[int]
@@ -45,6 +49,8 @@ class Solution2:
         return sorted(nums).index(target)
 
 class Solution3:
+    # Time complexity: O(n)
+    # Space complexity:  O(n)
     def searchInsert(self, nums, target):
         """
         :type nums: List[int]
