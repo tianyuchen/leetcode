@@ -22,7 +22,7 @@ Input: [1,3,5,6], 0
 Output: 0
 '''
 
-class Solution:
+class Solution1:
     # Time complexity: O(n)
     # Space complexity:  O(1)
     def searchInsert(self, nums, target):
@@ -47,14 +47,3 @@ class Solution2:
         """
         nums.append(target)
         return sorted(nums).index(target)
-
-class Solution3:
-    # Time complexity: O(n)
-    # Space complexity:  O(n)
-    def searchInsert(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        return len([x for x in nums if x < target])
