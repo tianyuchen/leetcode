@@ -37,7 +37,7 @@ class Solution1:
         return len(nums)
 
 class Solution2:
-    # Time complexity: O(1)
+    # Time complexity: O(n)
     # Space complexity: O(1)
     def searchInsert(self, nums, target):
         """
