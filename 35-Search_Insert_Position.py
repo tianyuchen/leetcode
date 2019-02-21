@@ -33,3 +33,22 @@ class Solution:
             if nums[i] >= target:
                 return i
         return len(nums)
+
+class Solution2:
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        nums.append(target)
+        return sorted(nums).index(target)
+
+class Solution3:
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        return len([x for x in nums if x < target])
