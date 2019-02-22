@@ -22,7 +22,9 @@ For the purpose of this problem, we will return 0 when needle is an empty
 string. This is consistent to C's strstr() and Java's indexOf().
 '''
 
-class Solution:
+class Solution1:
+    # Time complexity: O(n * m)
+    # Space complexity:  O(1)
     def strStr(self, haystack, needle):
         """
         :type haystack: str
@@ -38,4 +40,19 @@ class Solution:
                     break
                 if j == len(needle) - 1:
                     return i
+        return -1
+
+
+class Solution2:
+    # Time complexity: O(n)
+    # Space complexity:  O(1)
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        for i in range(len(haystack) - len(needle) + 1):
+            if haystack[i : i + len(needle)] == needle:
+                return i
         return -1
