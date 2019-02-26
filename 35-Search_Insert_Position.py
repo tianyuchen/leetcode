@@ -47,3 +47,27 @@ class Solution2:
         """
         nums.append(target)
         return sorted(nums).index(target)
+
+
+class Solution3:
+    # Binary search method
+    # Time complexity: O(log n)
+    # Space complexity: O(1)
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        l = 0
+        r = len(nums) -1
+
+        while l <= r:
+            mid = math.floor((l + r) / 2)
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return l
