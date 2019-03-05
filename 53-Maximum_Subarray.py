@@ -15,6 +15,8 @@ divide and conquer approach, which is more subtle.
 '''
 
 class Solution:
+    # Time complexity: O(n)
+    # Space complexity:  O(1)
     def maxSubArray(self, nums: 'List[int]') -> 'int':
         max_to_i = max_now = nums[0]
         for i in nums[1:]:
