@@ -56,3 +56,30 @@ class Solution2:
             if haystack[i : i + len(needle)] == needle:
                 return i
         return -1
+
+
+class Solution3:
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+
+        j, k = 0, 0
+        T = [-1] * len(needle)
+
+        while j < len(haystack):
+            if needle[k] == haystack[j]:
+                j += 1
+                k += 1
+
+                if k == len(needle):
+                    P[nP] = j - k
+                    nP = nP + 1
+                    k = T[k]
+            else:
+                k = T[k]
+                if k < 0:
+                    j = j + 1
+                    k = k + 1
