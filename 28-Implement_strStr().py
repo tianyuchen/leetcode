@@ -65,21 +65,27 @@ class Solution3:
         :type needle: str
         :rtype: int
         """
+        if haystack == None or needle == None:
+            return -1
 
-        j, k = 0, 0
-        T = [-1] * len(needle)
-
-        while j < len(haystack):
-            if needle[k] == haystack[j]:
-                j += 1
-                k += 1
-
-                if k == len(needle):
-                    P[nP] = j - k
-                    nP = nP + 1
-                    k = T[k]
+        #generate next array, need O(n) time
+        i, j, m, n = -1, 0, len(haystack), len(needle)
+        next = [-1] * n
+        while j < n - 1:
+            #needle[k] stands for prefix, neelde[j] stands for postfix
+            if i == -1 or needle[i] == needle[j]:
+                i, j = i + 1, j + 1
+                next[j] = i
             else:
-                k = T[k]
-                if k < 0:
-                    j = j + 1
-                    k = k + 1
+                i = next[i]
+
+        #check through the haystack using next, need O(m) time
+        i = j = 0
+        while i < m and j < n:
+            if j == -1 or haystack[i] == needle[j]:
+                i, j = i + 1, j + 1
+            else:
+                j = next[j]
+        if j == n:
+            return i - j
+        return -1
