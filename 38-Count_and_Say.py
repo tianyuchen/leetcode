@@ -36,15 +36,16 @@ class Solution:
             s = self.say(s)
         return s
 
-
+    # read the sequence of integer
     def say(self, sequence):
         res = ''
         count = 1
+        # In case the sequence is "1",no next value. add "0" to cover this case
         sequence += "0"
         for i in range(len(sequence) - 1):
             current = sequence[i]
-            next = sequence[i + 1]
-            if current != next:
+            after = sequence[i + 1]
+            if current != after:
                 res += str(count) + current
                 count = 1
             else:
