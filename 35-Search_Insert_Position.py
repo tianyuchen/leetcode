@@ -31,9 +31,9 @@ class Solution1:
         :type target: int
         :rtype: int
         """
-        for i in range(len(nums)):
-            if nums[i] >= target:
-                return i
+        for counter, value in enumerate(nums):
+            if value >= target:
+                return counter
         return len(nums)
 
 class Solution2:
