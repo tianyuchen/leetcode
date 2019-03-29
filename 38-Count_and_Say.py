@@ -40,7 +40,9 @@ class Solution:
     def say(self, sequence):
         res = ''
         count = 1
-        # In case the sequence is "1",no next value. add "0" to cover this case
+        # append a meaningless character to the end, so that the for loops that
+        # goes to the last but 2 element can be returned correctly.
+        # For ex, in case the sequence is "1",no next value. add "0" to cover this case
         sequence += "0"
         for i in range(len(sequence) - 1):
             current = sequence[i]
