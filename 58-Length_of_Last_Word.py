@@ -10,6 +10,8 @@ only.
 '''
 
 class Solution:
+    # Time complexity: O(n)
+    # Space complexity:  O(n)
     def lengthOfLastWord(self, s: str) -> int:
         count = 0
         # rstrip(): Return a copy of the string with trailing characters removed.
@@ -23,5 +25,7 @@ class Solution:
 
 
 class Solution2:
+    # Time complexity: O(n)
+    # Space complexity:  O(n)
     def lengthOfLastWord(self, s: str) -> int:
         return len(s.strip().split(' ')[-1])
