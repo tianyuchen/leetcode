@@ -37,4 +37,4 @@ class Solution(object):
                 s[rightPointer], s[leftPointer] = s[leftPointer], s[rightPointer]
                 leftPointer += 1
                 rightPointer -= 1
-        return (''.join(s))
+        return ''.join(s)
