@@ -22,7 +22,9 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        vowels = ['a', 'e', 'i', 'o', 'u', 'A','E','I','O','U']
+        # Sets are significantly faster when it comes to determining if an
+        # object is present in the set (as in x in s)
+        vowels = set(list("aeiouAEIOU"))
 
         leftPointer = 0
         rightPointer = len(s) - 1
