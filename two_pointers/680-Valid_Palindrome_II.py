@@ -13,7 +13,12 @@ Note:
 The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
 '''
 
+# Design a subfunction to check the string is valid or not.
+# When we encounter two different characters, we can choose to delete one of them, and check if it’s valid or not.
+
 class Solution(object):
+    # Time complexity: O(n)
+    # Space complexity: O(1)
     def validPalindrome(self, s):
         """
         :type s: str
