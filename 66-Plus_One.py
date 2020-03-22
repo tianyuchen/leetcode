@@ -26,7 +26,6 @@ class Solution:
         for i in range(0, len(digits)):
             if digits[i] + carry != 10:
                 digits[i] = digits[i] + carry
-                carry = 0
                 break
             else:
                 digits[i] = 0
