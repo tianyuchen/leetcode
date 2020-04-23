@@ -29,3 +29,17 @@ class Solution2:
     # Space complexity:  O(n)
     def lengthOfLastWord(self, s: str) -> int:
         return len(s.strip().split(' ')[-1])
+
+
+class Solution3:
+    # Time complexity: O(n)
+    # Space complexity:  O(1)
+    def lengthOfLastWord(self, s: str) -> int:
+        last_index = len(s) - 1
+        while last_index >= 0 and s[last_index] == ' ':
+            last_index -= 1
+
+        first_index = last_index
+        while first_index >= 0 and s[first_index] != ' ':
+            first_index -= 1
+        return last_index - first_index
