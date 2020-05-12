@@ -30,3 +30,16 @@ class Solution:
             prev = curr
             curr = curr.next
         return newHead.next
+
+
+# recursive solution
+class Solution2:
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def swapPairs(self, head: ListNode) -> ListNode:
+        if head and head.next:
+            suiv = head.next
+            head.next = self.swapPairs(suiv.next)
+            suiv.next = head
+            return suiv
+        return head
