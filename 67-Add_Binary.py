@@ -17,7 +17,25 @@ Constraints:
 a and b consist only of '0' or '1' characters.
 Each string does not contain leading zeros except for the zero itself.
 '''
-class Solution:
+class Solution1:
+    def addBinary(self, a: str, b: str) -> str:
+        carry = 0
+        res = ""
+
+        a = list(a)
+        b = list(b)
+
+        while a or b or carry:
+            if a:
+                carry += int(a.pop())
+            if b:
+                carry += int(b.pop())
+            res += str(carry % 2)
+            carry = carry // 2
+        return res[::-1]
+
+
+class Solution2:
     def addBinary(self, a: str, b: str) -> str:
         c = int(a, 2) + int(b, 2)
         res = str("{0:b}".format(c))
