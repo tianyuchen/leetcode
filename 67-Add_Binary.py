@@ -20,19 +20,19 @@ Each string does not contain leading zeros except for the zero itself.
 class Solution1:
     def addBinary(self, a: str, b: str) -> str:
         carry = 0
-        res = ""
+        res = []
 
         a = list(a)
         b = list(b)
 
         while a or b or carry:
-            if a:
-                carry += int(a.pop())
-            if b:
-                carry += int(b.pop())
-            res += str(carry % 2)
-            carry = carry // 2
-        return res[::-1]
+            if a and a.pop() == '1':
+                carry += 1
+            if b and b.pop() == '1':
+                carry += 1
+            res.append('0' if carry % 2 == 0 else '1')
+            carry >>= 1
+        return ''.join(res)[::-1] 
 
 
 class Solution2:
