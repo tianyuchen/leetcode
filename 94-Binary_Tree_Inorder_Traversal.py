@@ -26,6 +26,8 @@ The number of nodes in the tree is in the range [0, 100].
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# iterative solution
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         stack, res = [], []
@@ -38,3 +40,16 @@ class Solution:
                 res.append(tmpNode.val)
                 root = tmpNode.right
         return res
+
+# recursive solution
+class Solution2:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        self.helper(root, res)
+        return res
+
+    def helper(self, root, res):
+        if root:
+            self.helper(root.left, res)
+            res.append(root.val)
+            self.helper(root.right, res)
