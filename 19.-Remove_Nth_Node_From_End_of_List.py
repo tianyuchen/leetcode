@@ -25,6 +25,8 @@ The number of nodes in the list is sz.
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+#second time solution
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         dummy = ListNode(0, head)
@@ -42,3 +44,19 @@ class Solution:
         left.next = left.next.next
 
         return dummy.next
+
+#first time solution
+class Solution:
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        beforeTarget = end = head
+        for _ in range(n):
+            end = end.next
+        if not end:
+            return head.next
+        while end.next:
+            end = end.next
+            beforeTarget = beforeTarget.next
+        beforeTarget.next = beforeTarget.next.next
+        return head
