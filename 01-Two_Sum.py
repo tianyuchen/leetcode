@@ -14,16 +14,12 @@ return [0, 1].
 
 
 class Solution:
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        num_index = {}
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {}  # val -> index
 
-        for i in range(0, len(nums)):
-            if target - nums[i] in num_index:
-                return [num_index[target - nums[i]], i]
-            else:
-                num_index[nums[i]] = i
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+
+            prevMap[n] = i
