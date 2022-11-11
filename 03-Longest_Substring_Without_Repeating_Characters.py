@@ -20,6 +20,20 @@ Explanation: The answer is "wke", with the length of 3.
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 '''
 
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l, r, res = 0, 0, 0
+        while r < len(s):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            res = max(res, r - l + 1)
+            r += 1
+        return res
+
+
 class Solution1:
     def lengthOfLongestSubstring(self, s):
         """
