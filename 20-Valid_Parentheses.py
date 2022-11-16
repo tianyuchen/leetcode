@@ -31,6 +31,22 @@ Output: true
 '''
 
 class Solution:
+    def isValid(self, s: str) -> bool:
+        Map = {")": "(", "]": "[", "}": "{"}
+        stack = []
+
+        for c in s:
+            if c in Map:
+                if stack and stack[-1] == Map[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+        return not stack
+
+
+class Solution2:
     def isValid(self, s):
         """
         :type s: str
@@ -52,7 +68,7 @@ class Solution:
         return not stack
 
 
-class Solution2:
+class Solution3:
     def isValid(self, s):
         """
         :type s: str
@@ -64,7 +80,7 @@ class Solution2:
         for i in s:
             # when i is the key in mapping and stack isn't vide
             if i in mapping and stack:
-                # if the top element isn't its pair bracket 
+                # if the top element isn't its pair bracket
                 if stack.pop() != mapping[i]:
                     return False
             else:
